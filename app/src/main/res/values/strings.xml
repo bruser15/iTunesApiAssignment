@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ITunesApiAssignment</string>
+    <string name="main_view_text">Select a Genre</string>
+</resources>
