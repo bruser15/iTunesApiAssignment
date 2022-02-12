@@ -1,7 +1,7 @@
 package com.example.itunesapiassignment.model.remote
 
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 object Network {
 
@@ -11,7 +11,7 @@ object Network {
 
     private fun initRetrofit(): Retrofit {
         return Retrofit.Builder().baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 }
