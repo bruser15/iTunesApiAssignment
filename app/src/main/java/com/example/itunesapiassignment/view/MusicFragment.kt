@@ -21,6 +21,7 @@ class MusicFragment() : Fragment(), MusicView {
     private val presenter: IPresenterMusic by lazy {
         PresenterMusic()
     }
+    private lateinit var mediaPlayer: MediaPlayer
     fun newInstance(pos: Int){
         position = pos
     }
@@ -72,6 +73,7 @@ class MusicFragment() : Fragment(), MusicView {
 
 
     override fun initViews(dataSet: MusicResponse) {
+        mediaPlayer = MediaPlayer()
         binding.musicList.layoutManager = GridLayoutManager(context, 1)
         binding.musicList.adapter = MusicAdapter(dataSet.results.map {
             MusicItem(
@@ -82,7 +84,13 @@ class MusicFragment() : Fragment(), MusicView {
                 it.previewUrl
             )
         }) {
-            MediaPlayer.create(requireContext(),Uri.parse(it.previewUrl)).start()
+            if(mediaPlayer.isPlaying) {
+                mediaPlayer.stop()
+            }
+            else{
+                mediaPlayer = MediaPlayer.create(requireContext(), Uri.parse(it.previewUrl))
+                mediaPlayer.start()
+            }
         }
     }
 
