@@ -14,12 +14,16 @@ import com.example.itunesapiassignment.model.remote.*
 import com.example.itunesapiassignment.presenter.IPresenterMusic
 import com.example.itunesapiassignment.presenter.PresenterMusic
 
-class MusicFragment(private val position: Int) : Fragment(), MusicView {
+class MusicFragment() : Fragment(), MusicView {
 
+
+    private var position = 0
     private val presenter: IPresenterMusic by lazy {
         PresenterMusic()
     }
-
+    fun newInstance(pos: Int){
+        position = pos
+    }
     private lateinit var binding: MusicFragmentLayoutBinding
 
     override fun onCreateView(
