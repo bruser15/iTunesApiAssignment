@@ -39,11 +39,6 @@ class MusicFragment() : Fragment(), MusicView {
             false
         )
         requestData()
-//        arguments?.let { bundle->
-//            bundle.getParcelable<MusicResponse>("MusicResponseData")?.let {
-//                displayData(it)
-//            }
-//        }
 
         presenter.bind(this)
         return binding.root
@@ -68,14 +63,9 @@ class MusicFragment() : Fragment(), MusicView {
     }
 
     override fun displayData(list: MusicResponse) {
-        initViews(list)
-    }
-
-
-    override fun initViews(dataSet: MusicResponse) {
         mediaPlayer = MediaPlayer()
         binding.musicList.layoutManager = GridLayoutManager(context, 1)
-        binding.musicList.adapter = MusicAdapter(dataSet.results.map {
+        binding.musicList.adapter = MusicAdapter(list.results.map {
             MusicItem(
                 it.artistName,
                 it.collectionName,

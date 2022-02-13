@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.itunesapiassignment.databinding.ItemLayoutBinding
 import com.example.itunesapiassignment.model.remote.MusicItem
-import com.example.itunesapiassignment.model.remote.MusicResponse
 
 class MusicAdapter (private val dataSet: List<MusicItem>,
                                      private val openDisplayFragment: (MusicItem) -> Unit):

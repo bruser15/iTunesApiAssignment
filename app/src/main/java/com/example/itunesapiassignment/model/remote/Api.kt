@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface Api {
     @GET(END_POINT)
     fun  getMusic(
-        @Query("term") term: String = TERM_CLASSIC,
+        @Query("term") term: String,
         @Query("amp;media") media: String = MEDIA,
         @Query("amp;entity") entity: String = ENTITY,
         @Query("amp;limit") limit: String = LIMIT

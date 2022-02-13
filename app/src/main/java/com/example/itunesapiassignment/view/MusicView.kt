@@ -7,6 +7,4 @@ interface MusicView {
     fun displayData(
         list: MusicResponse
     )
-
-    fun initViews(it: MusicResponse)
 }
